@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 extension ContextExtension on BuildContext {
@@ -38,4 +40,13 @@ extension PaddingExtensionSymetric on BuildContext {
   EdgeInsets get paddingNormalHorizontal => EdgeInsets.symmetric(horizontal: normalValue);
   EdgeInsets get paddingMediumHorizontal => EdgeInsets.symmetric(horizontal: mediumValue);
   EdgeInsets get paddingHighHorizontal => EdgeInsets.symmetric(horizontal: highValue);
+}
+
+extension PageExtension on BuildContext {
+  Color get randomColor => Colors.primaries[Random().nextInt(17)];
+}
+
+extension DurationExtension on BuildContext {
+  Duration get lowDuration => Duration(milliseconds: 500);
+  Duration get normalDuration => Duration(seconds: 1);
 }

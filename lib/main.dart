@@ -1,16 +1,18 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_architecture/view/authenticate/onboard/view/on_board_view.dart';
 
 import 'core/constants/app/app_constants.dart';
-import 'core/init/cache/locale_manager.dart';
 import 'core/init/lang/language_manager.dart';
 import 'core/init/navigation/navigation_route.dart';
 import 'core/init/navigation/navigation_service.dart';
-import 'view/authenticate/onboard/view/on_board_view.dart';
+import 'view/authenticate/login/view/login_view.dart';
+
 Future<void> main() async {
-  LocaleManager.preferencesInit();
+  // LocaleManager.preferencesInit();
   await _init();
-  runApp( EasyLocalization(
+  runApp(
+    EasyLocalization(
       child: const MyApp(),
       supportedLocales: LanguageManager.instance!.supporteedLocales,
       path: ApplicationConstants.LANG_ASSETS_PATH,
@@ -39,7 +41,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:OnBoardView(),
+      home: LoginView(),
       onGenerateRoute: NavigationRoute.instance.generateRoute,
       navigatorKey: NavigationService.instance!.navigatorKey,
     );

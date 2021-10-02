@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/core/constants/enums/preferences_keys_enum.dart';
-import 'package:flutter_architecture/core/constants/navigation/navigation_constants.dart';
+
 import 'package:mobx/mobx.dart';
 
 import '../../../../core/base/model/base_view_model.dart';
@@ -18,7 +17,7 @@ abstract class _OnBoardViewModelBase with Store, BaseViewModel {
   List<OnBoardModel> onBoardItems = [];
 
   @observable
-  bool isLoading = true;
+  bool isLoading = false;
 
   @observable
   int currentIndex = 0;
@@ -58,12 +57,13 @@ abstract class _OnBoardViewModelBase with Store, BaseViewModel {
     isLoading = !isLoading;
   }
 
-  Future<void> completeToBoard() async {
-    changeLoading();
-    await localeManager.setBoolValue(PreferencesKeys.IS_FIRST_APP, true);
-    
-    //changeLoading();
+   // TODO buraya da bak
+  // Future<void> completeToBoard() async {
+  //   changeLoading();
+  //   await localeManager.setBoolValue(PreferencesKeys.IS_FIRST_APP, true);
 
-    navigation.navigatePage(path: NavigationConstants.denem);
-  }
+  //   changeLoading();
+
+  //   navigation.navigatePage(path: NavigationConstants.denem);
+  // }
 }
